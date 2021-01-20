@@ -16,15 +16,13 @@ public class wordCount {
             listOfLines.add(Arrays.asList(line.split("\\P{IsAlphabetic}+")));
             line = br.readLine();
         }
-        Integer lineCount = listOfLines.size();
-        Integer wordCount = 0;
-        Integer charCount = 0;
-        for (int i = 0; i < listOfLines.size(); i++){
-            List<String> words = listOfLines.get(i);
-            for (int j = 0; j < words.size(); j++) {
-                String word = words.get(j);
+        int lineCount = listOfLines.size();
+        int wordCount = 0;
+        int charCount = 0;
+        for (List<String> words : listOfLines) {
+            for (String word : words) {
                 charCount += word.length();
-                wordCount += word != "" ? 1 : 0;
+                wordCount += !word.equals("") ? 1 : 0;
             }
         }
         System.out.println("Lines: "+lineCount);
