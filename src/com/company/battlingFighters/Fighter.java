@@ -23,9 +23,8 @@ public class Fighter {
     }
 
     public void takeDamage(int damage){
-        if (stamina > 2) {
-            stamina -= damage;
-        } else {
+        stamina -= damage;
+        if (stamina < 0) {
             stamina = 0;
         }
     }
@@ -36,10 +35,12 @@ public class Fighter {
         return rand.nextInt(upperbound)+1;
     }
 
+    public int rollDie(){
+        return rollDice() + rollDice();
+    }
+
     public int calculateAttackScore(){
-        int roll1 = rollDice();
-        int roll2 = rollDice();
-        return roll1 + roll2 + skill;
+        return rollDie() + skill;
     }
 
     public boolean isDead(){
@@ -48,6 +49,8 @@ public class Fighter {
 
     public void winner() {
         System.out.println("End of battle, "+name+" - "+type+" - " +
-                "skill: "+skill+";stamina: "+stamina+" wins!");
+                "skill: "+skill+"; stamina: "+stamina+" wins!");
     }
+
+
 }

@@ -22,7 +22,7 @@ public class wordCount {
         for (List<String> words : listOfLines) {
             for (String word : words) {
                 charCount += word.length();
-                wordCount += !word.equals("") ? 1 : 0;
+                wordCount += word.equals("") ? 0 : 1;
             }
         }
         System.out.println("Lines: "+lineCount);
