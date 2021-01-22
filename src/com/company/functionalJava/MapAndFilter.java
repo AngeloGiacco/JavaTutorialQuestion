@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Example {
+public class MapAndFilter {
 
     private static String reverse(String word){
         StringBuilder result = new StringBuilder();
@@ -27,7 +27,7 @@ public class Example {
 
     private static List<String> reverseEachString(List<String> input){
         return input.stream()
-                .map(Example::reverse)
+                .map(MapAndFilter::reverse)
                 .collect(Collectors.toList());
     }
 
@@ -42,7 +42,7 @@ public class Example {
 
     private static List<Double> sqrtsOfFirstDigits(List<String> input){
         return input.stream()
-                .filter(Example::firstCharIsDigit)
+                .filter(MapAndFilter::firstCharIsDigit)
                 .map(item -> item.substring(0,1))
                 .map(item -> Integer.parseInt(item))
                 .map(item -> Math.sqrt(item))
@@ -51,8 +51,8 @@ public class Example {
 
     private static List<Double> sqrtsOfFirstDigits2(List<String> input){
         return input.stream()
-                .filter(Example::firstCharIsDigit)
-                .map(Example::sqrtFirstDigit)
+                .filter(MapAndFilter::firstCharIsDigit)
+                .map(MapAndFilter::sqrtFirstDigit)
                 .collect(Collectors.toList());
     }
 
