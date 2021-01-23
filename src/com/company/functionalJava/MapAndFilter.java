@@ -40,12 +40,18 @@ public class MapAndFilter {
 
     }
 
+    private static List<String> reverseEachStringMonolith(List<String> input){
+        return input.stream()
+                .map(item -> new  StringBuilder(item).reverse().toString())
+                .collect(Collectors.toList());
+    }
+
     private static List<Double> sqrtsOfFirstDigits(List<String> input){
         return input.stream()
                 .filter(MapAndFilter::firstCharIsDigit)
                 .map(item -> item.substring(0,1))
-                .map(item -> Integer.parseInt(item))
-                .map(item -> Math.sqrt(item))
+                .map(Integer::parseInt)
+                .map(Math::sqrt)
                 .collect(Collectors.toList());
     }
 
@@ -63,5 +69,12 @@ public class MapAndFilter {
         List<String> numbers = Arrays.asList("123","456","987","notanumber","888","");
         System.out.println(sqrtsOfFirstDigits(numbers));
         System.out.println(sqrtsOfFirstDigits2(numbers));
+        List<String> reverseTest = Arrays.asList("siht","lliw","lla","eb","desrever");
+        List<Double> sqrtTest = Arrays.asList(Math.sqrt(1),Math.sqrt(4),Math.sqrt(9),Math.sqrt(8));
+        assert reverseTest.equals(reverseEachString(words));
+        assert reverseTest.equals(reverseEachString2(words));
+        assert reverseTest.equals(reverseEachStringMonolith(words));
+        assert sqrtTest.equals(sqrtsOfFirstDigits(numbers));
+        assert sqrtTest.equals(sqrtsOfFirstDigits2(numbers));
     }
 }
