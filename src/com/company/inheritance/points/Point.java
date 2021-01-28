@@ -48,4 +48,14 @@ public class Point {
         Point cp1 = new Point(3,4,12);
         assert cp1.distanceFromOrigin() == 13;
     }
+    @Override
+    public boolean equals(Object that) {
+
+        if (!(that instanceof Point)) {
+            return false;
+        }
+        Point thatPoint = (Point) that;
+        return x == thatPoint.getX() && y == thatPoint.getY() && z == thatPoint.getZ();
+
+    }
 }

@@ -8,12 +8,27 @@ public class ColouredPoint extends Point {
         this.colour = new Colour(red,green,blue);
     }
 
+    public Colour getColour() {
+        return colour;
+    }
+
     @Override
     public String toString() {
         return super.toString() +
                 "\nThe red colour component is: " + this.colour.getRed() +"."+
                 "\nThe green colour component is: " + this.colour.getGreen() +"."+
                 "\nThe blue colour component is: " + this.colour.getBlue()+".";
+    }
+
+    @Override
+    public boolean equals(Object that) {
+
+        if (!(that instanceof ColouredPoint)) {
+            return false;
+        }
+        ColouredPoint thatPoint = (ColouredPoint) that;
+        return super.equals(that) && colour == thatPoint.getColour();
+
     }
 
     public static void main(String[] args) {
