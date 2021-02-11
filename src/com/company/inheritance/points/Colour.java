@@ -1,4 +1,4 @@
-package com.company.inheritance;
+package com.company.inheritance.points;
 
 public class Colour {
     private final int r;

@@ -1,4 +1,4 @@
-package com.company.inheritance;
+package com.company.inheritance.points;
 
 public class Point {
     private final int x;

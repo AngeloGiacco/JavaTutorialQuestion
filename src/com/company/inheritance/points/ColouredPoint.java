@@ -1,4 +1,4 @@
-package com.company.inheritance;
+package com.company.inheritance.points;
 
 public class ColouredPoint extends Point {
     private final Colour colour;
